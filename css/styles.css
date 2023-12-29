@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+:root{
+    --orange: hsl(25, 97%, 53%);
+    --white: hsl(0, 0%, 100%);
+    --grey: hsl(217, 12%, 63%);
+    --darker-grey: hsl(216, 12%, 54%);
+    --dark-grey2: hsla(216, 12%, 54%, 15%);
+    --blue: hsl(213, 19%, 18%);
+    --darker-blue: hsl(216, 12%, 8%);
+
+}
+
+/* CSS RESET */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+  
+  /* Remove default margin in favour of better control in authored CSS */
+  body, h1, h2, h3, h4, p,
+  figure, blockquote, dl, dd {
+    margin-block-end: 0;
+  }
+  
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+  }
+  
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    line-height: 1.7;
+  }
+  
+  /* Set shorter line heights on headings and interactive elements */
+  h1, h2, h3, h4,
+  button, input, label {
+    line-height: 1.1;
+  }
+  
+  /* Balance text wrapping on headings */
+  h1, h2,
+  h3, h4 {
+    text-wrap: balance;
+  }
+  
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+  }
+  
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* Inherit fonts for inputs and buttons */
+  input, button,
+  textarea, select {
+    font: inherit;
+  }
+  
+  /* Make sure textareas without a rows attribute are not tiny */
+  textarea:not([rows]) {
+    min-height: 10em;
+  }
+  
+  /* Anything that has been anchored to should have extra scroll margin */
+  :target {
+    scroll-margin-block: 5ex;
+  }
+
+/* STYLING */
+
+html{
+    font-size: 93.75%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--darker-blue);
+    color: var(--white);
+    font-family: Overpass, sans-serif;
+}
+
+#card, #thanks-card{
+    background-color: var(--blue);
+    max-width: 410px;
+    padding: 2rem;
+    border-radius: 25px;
+}
+
+h2{
+    font-size: 1.85rem;
+    margin: 2.5rem 0 0.5rem 0;
+}
+
+p{
+    color: var(--grey);
+}
+
+.circle{
+    background-color: var(--dark-grey2); 
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.star{
+    width: 48px;
+    padding-left: 0.1rem;
+    padding-bottom: 0.1rem;
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.btn{
+    border: none;
+    color: var(--grey);
+    font-size: 1.2rem;
+    margin: 1.8rem 0 2rem 0;
+    width: 52px;
+    padding-top: 0.2rem;
+}
+
+.btn:hover{
+    background-color: var(--orange);
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:focus{
+    background-color: var(--grey);
+    color: var(--white);
+}
+
+.btn-submit{
+    width: 100%;
+    padding: 0.8rem 0 0.5rem 0;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--orange);
+    color: var(--white);
+    letter-spacing: 0.25rem;
+}
+
+.btn-submit:hover, .btn-submit:active{
+    background-color: var(--white);
+    color: var(--orange);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* THANKS-CARD */
+
+#thanks-card{
+    text-align: center;
+    padding: 3rem 2.3rem;
+}
+
+#thanks-card .img-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selected-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto 0 auto;
+    background-color: var(--dark-grey2);
+    height: 2.15rem;
+    border-radius: 25px;
+    width: fit-content;
+    padding: 0 1.4rem;
+}
+
+.selected-container p{
+    color: var(--orange);
+    padding-top: 0.2rem;
+}
+
+.hidden{
+    display: none;
+}
+
+@media (max-width: 720px) {
+    body{
+        line-height: 1.5;
+    }
+
+    #card{
+        padding: 1.5rem;
+        max-width: 330px;
+        border-radius: 15px;
+    }
+
+    h2{
+        font-size: 1.6rem;
+        margin: 1rem 0;
+    }
+
+    p{
+        font-size: 0.95rem;
+    }
+    
+    .star{
+        width: 40px ;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn{
+        width: 40px;
+        font-size: 1rem;
+    }
+
+    .btn-submit{
+        margin-bottom: 0.5rem;
+        letter-spacing: 2px;
+        font-size: 1rem;
+    }
+
+    /* THANKS CARD */
+    #thanks-card{
+        padding: 1.8rem;
+        padding-bottom: 2.8rem;
+        max-width: 330px;
+        border-radius: 15px;
+    }
+
+    #thanks-card p{
+        margin: 0;
+    }
+
+    #thanks-card img{
+        max-width: 145px ;
+    }
+
+    .selected-container{
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+}
