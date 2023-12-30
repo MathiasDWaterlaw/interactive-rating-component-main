@@ -11,6 +11,8 @@ ratingSelection.forEach(rating => {
 })
 
 submitButton.addEventListener('click', () =>{
-    thanksCard.classList.remove('hidden');
-    card.classList.add('hidden');
+    if(finalRating.innerText != 'n'){
+        thanksCard.classList.remove('hidden');
+        card.classList.add('hidden');
+    }
 });
